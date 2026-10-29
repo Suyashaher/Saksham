@@ -115,7 +115,14 @@ class Settings(BaseSettings):
     REPORT_MAX_ROWS: int = 50000
 
     # ── Phase 6 — Frontend CORS ─────────────────────────────────────────────────
-    CORS_ORIGINS: list[str] | str = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:8000"]
+    CORS_ORIGINS: list[str] | str = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:8000",
+        "https://saksham-a1mlox9o9-suyashaher99-3716s-projects.vercel.app",
+        "https://saksham.vercel.app",
+    ]
+    CORS_ORIGIN_REGEX: str | None = r"https:\/\/.*\.vercel\.app"
 
     @field_validator("CORS_ORIGINS", mode="after")
     @classmethod
