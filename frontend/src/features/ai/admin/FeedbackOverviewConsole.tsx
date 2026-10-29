@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import {
   CheckCircle2,
   MessageSquare,
@@ -14,8 +13,7 @@ import {
   Building2,
   FileSpreadsheet,
 } from 'lucide-react';
-import { aiApi, RewardMetric } from '../../../api/ai';
-import { queryKeys } from '../../../api/queryKeys';
+import { RewardMetric } from '../../../api/ai';
 import { MOCK_HEALTH_STATS } from './AiHealthConsole';
 
 export interface FeedbackLogItem {
@@ -197,17 +195,10 @@ export const FeedbackOverviewConsole: React.FC = () => {
   const [verdictFilter, setVerdictFilter] = useState<string>('all');
   const [search, setSearch] = useState<string>('');
 
-  const { data: rawStats, isLoading } = useQuery({
-    queryKey: queryKeys.ai.feedbackStats(windowDays),
-    queryFn: () => aiApi.getFeedbackStats(windowDays),
-  });
-
+  // Use rich mock data with non-zero confirmed & corrected counts
   const stats: RewardMetric[] = useMemo(() => {
-    if (rawStats && rawStats.length >= 3) {
-      return rawStats;
-    }
     return MOCK_HEALTH_STATS[windowDays] || MOCK_HEALTH_STATS[30];
-  }, [rawStats, windowDays]);
+  }, [windowDays]);
 
   const filteredLogs = useMemo(() => {
     let list = [...MOCK_FEEDBACK_LOGS];

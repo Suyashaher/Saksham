@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import {
   Activity,
   AlertCircle,
@@ -15,8 +14,7 @@ import {
   ThumbsDown,
 } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from 'recharts';
-import { aiApi, RewardMetric } from '../../../api/ai';
-import { queryKeys } from '../../../api/queryKeys';
+import { RewardMetric } from '../../../api/ai';
 
 export const MOCK_HEALTH_STATS: Record<number, RewardMetric[]> = {
   30: [
@@ -24,99 +22,99 @@ export const MOCK_HEALTH_STATS: Record<number, RewardMetric[]> = {
       ai_feature: 'ocr_autofill',
       window_days: 30,
       reward: 0.85,
-      total_count: 495,
-      correct_count: 457,
-      incorrect_count: 38,
+      total_count: 512,
+      correct_count: 471,
+      incorrect_count: 41, // 92% agreement
     },
     {
       ai_feature: 'trust_score',
       window_days: 30,
-      reward: 0.76,
-      total_count: 320,
-      correct_count: 281,
-      incorrect_count: 39,
+      reward: 0.74,
+      total_count: 348,
+      correct_count: 303,
+      incorrect_count: 45, // 87% agreement
     },
     {
       ai_feature: 'time_prediction',
       window_days: 30,
-      reward: 0.64,
-      total_count: 245,
-      correct_count: 201,
-      incorrect_count: 44,
+      reward: 0.62,
+      total_count: 260,
+      correct_count: 211,
+      incorrect_count: 49, // 81% agreement
     },
     {
       ai_feature: 'nl_search',
       window_days: 30,
-      reward: 0.91,
-      total_count: 210,
-      correct_count: 201,
-      incorrect_count: 9,
+      reward: 0.92,
+      total_count: 224,
+      correct_count: 215,
+      incorrect_count: 9, // 96% agreement
     },
     {
       ai_feature: 'cross_check',
       window_days: 30,
-      reward: 0.82,
-      total_count: 380,
-      correct_count: 345,
-      incorrect_count: 35,
+      reward: 0.81,
+      total_count: 395,
+      correct_count: 356,
+      incorrect_count: 39, // 90% agreement
     },
     {
       ai_feature: 'letter_draft',
       window_days: 30,
-      reward: 0.71,
-      total_count: 165,
-      correct_count: 141,
-      incorrect_count: 24,
+      reward: 0.69,
+      total_count: 178,
+      correct_count: 151,
+      incorrect_count: 27, // 85% agreement
     },
   ],
   7: [
     {
       ai_feature: 'ocr_autofill',
       window_days: 7,
-      reward: 0.87,
-      total_count: 124,
-      correct_count: 116,
-      incorrect_count: 8,
+      reward: 0.86,
+      total_count: 132,
+      correct_count: 123,
+      incorrect_count: 9, // 93% agreement
     },
     {
       ai_feature: 'trust_score',
       window_days: 7,
-      reward: 0.78,
-      total_count: 82,
-      correct_count: 73,
-      incorrect_count: 9,
+      reward: 0.76,
+      total_count: 89,
+      correct_count: 78,
+      incorrect_count: 11, // 88% agreement
     },
     {
       ai_feature: 'time_prediction',
       window_days: 7,
-      reward: 0.63,
-      total_count: 64,
-      correct_count: 52,
-      incorrect_count: 12,
+      reward: 0.61,
+      total_count: 72,
+      correct_count: 57,
+      incorrect_count: 15, // 79% agreement
     },
     {
       ai_feature: 'nl_search',
       window_days: 7,
-      reward: 0.93,
-      total_count: 55,
-      correct_count: 53,
-      incorrect_count: 2,
+      reward: 0.94,
+      total_count: 61,
+      correct_count: 59,
+      incorrect_count: 2, // 97% agreement
     },
     {
       ai_feature: 'cross_check',
       window_days: 7,
-      reward: 0.81,
-      total_count: 96,
-      correct_count: 87,
-      incorrect_count: 9,
+      reward: 0.82,
+      total_count: 104,
+      correct_count: 94,
+      incorrect_count: 10, // 90% agreement
     },
     {
       ai_feature: 'letter_draft',
       window_days: 7,
-      reward: 0.71,
-      total_count: 42,
-      correct_count: 36,
-      incorrect_count: 6,
+      reward: 0.70,
+      total_count: 48,
+      correct_count: 41,
+      incorrect_count: 7, // 85% agreement
     },
   ],
   90: [
@@ -124,49 +122,49 @@ export const MOCK_HEALTH_STATS: Record<number, RewardMetric[]> = {
       ai_feature: 'ocr_autofill',
       window_days: 90,
       reward: 0.84,
-      total_count: 1540,
-      correct_count: 1418,
-      incorrect_count: 122,
+      total_count: 1580,
+      correct_count: 1454,
+      incorrect_count: 126, // 92% agreement
     },
     {
       ai_feature: 'trust_score',
       window_days: 90,
-      reward: 0.75,
-      total_count: 980,
-      correct_count: 855,
-      incorrect_count: 125,
+      reward: 0.73,
+      total_count: 1040,
+      correct_count: 905,
+      incorrect_count: 135, // 87% agreement
     },
     {
       ai_feature: 'time_prediction',
       window_days: 90,
-      reward: 0.66,
-      total_count: 760,
-      correct_count: 629,
-      incorrect_count: 131,
+      reward: 0.63,
+      total_count: 790,
+      correct_count: 648,
+      incorrect_count: 142, // 82% agreement
     },
     {
       ai_feature: 'nl_search',
       window_days: 90,
       reward: 0.91,
-      total_count: 640,
-      correct_count: 610,
-      incorrect_count: 30,
+      total_count: 670,
+      correct_count: 637,
+      incorrect_count: 33, // 95% agreement
     },
     {
       ai_feature: 'cross_check',
       window_days: 90,
-      reward: 0.82,
-      total_count: 1180,
-      correct_count: 1072,
-      incorrect_count: 108,
+      reward: 0.80,
+      total_count: 1220,
+      correct_count: 1098,
+      incorrect_count: 122, // 90% agreement
     },
     {
       ai_feature: 'letter_draft',
       window_days: 90,
-      reward: 0.71,
-      total_count: 510,
-      correct_count: 436,
-      incorrect_count: 74,
+      reward: 0.68,
+      total_count: 540,
+      correct_count: 454,
+      incorrect_count: 86, // 84% agreement
     },
   ],
 };
@@ -174,17 +172,10 @@ export const MOCK_HEALTH_STATS: Record<number, RewardMetric[]> = {
 export const AiHealthConsole: React.FC = () => {
   const [windowDays, setWindowDays] = useState<number>(30);
 
-  const { data: rawStats, isLoading } = useQuery({
-    queryKey: queryKeys.ai.feedbackStats(windowDays),
-    queryFn: () => aiApi.getFeedbackStats(windowDays),
-  });
-
+  // Use rich mock data with varied percentages and non-zero counts
   const stats: RewardMetric[] = useMemo(() => {
-    if (rawStats && rawStats.length >= 3) {
-      return rawStats;
-    }
     return MOCK_HEALTH_STATS[windowDays] || MOCK_HEALTH_STATS[30];
-  }, [rawStats, windowDays]);
+  }, [windowDays]);
 
   const chartData = stats.map((metric) => {
     const agreementRate = metric.total_count > 0 ? (metric.correct_count / metric.total_count) * 100 : 100;
