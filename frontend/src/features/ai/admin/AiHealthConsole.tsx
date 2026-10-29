@@ -21,152 +21,152 @@ import { queryKeys } from '../../../api/queryKeys';
 export const MOCK_HEALTH_STATS: Record<number, RewardMetric[]> = {
   30: [
     {
-      ai_feature: 'ocr_extraction',
+      ai_feature: 'ocr_autofill',
       window_days: 30,
-      reward: 0.94,
-      total_count: 482,
-      correct_count: 468,
-      incorrect_count: 14,
+      reward: 0.85,
+      total_count: 495,
+      correct_count: 457,
+      incorrect_count: 38,
     },
     {
-      ai_feature: 'bank_slip_alignment',
+      ai_feature: 'trust_score',
       window_days: 30,
-      reward: 0.95,
-      total_count: 340,
-      correct_count: 332,
-      incorrect_count: 8,
+      reward: 0.76,
+      total_count: 320,
+      correct_count: 281,
+      incorrect_count: 39,
     },
     {
-      ai_feature: 'trust_score_engine',
+      ai_feature: 'time_prediction',
       window_days: 30,
-      reward: 0.93,
-      total_count: 295,
-      correct_count: 284,
-      incorrect_count: 11,
+      reward: 0.64,
+      total_count: 245,
+      correct_count: 201,
+      incorrect_count: 44,
     },
     {
-      ai_feature: 'turnaround_predictor',
+      ai_feature: 'nl_search',
       window_days: 30,
-      reward: 0.89,
+      reward: 0.91,
       total_count: 210,
-      correct_count: 198,
-      incorrect_count: 12,
+      correct_count: 201,
+      incorrect_count: 9,
     },
     {
-      ai_feature: 'nl_query_parser',
+      ai_feature: 'cross_check',
       window_days: 30,
-      reward: 0.95,
-      total_count: 175,
-      correct_count: 171,
-      incorrect_count: 4,
+      reward: 0.82,
+      total_count: 380,
+      correct_count: 345,
+      incorrect_count: 35,
     },
     {
-      ai_feature: 'discrepancy_classifier',
+      ai_feature: 'letter_draft',
       window_days: 30,
-      reward: 0.94,
-      total_count: 126,
-      correct_count: 122,
-      incorrect_count: 4,
+      reward: 0.71,
+      total_count: 165,
+      correct_count: 141,
+      incorrect_count: 24,
     },
   ],
   7: [
     {
-      ai_feature: 'ocr_extraction',
+      ai_feature: 'ocr_autofill',
       window_days: 7,
-      reward: 0.96,
-      total_count: 118,
-      correct_count: 115,
-      incorrect_count: 3,
+      reward: 0.87,
+      total_count: 124,
+      correct_count: 116,
+      incorrect_count: 8,
     },
     {
-      ai_feature: 'bank_slip_alignment',
+      ai_feature: 'trust_score',
       window_days: 7,
-      reward: 0.97,
-      total_count: 85,
-      correct_count: 83,
-      incorrect_count: 2,
+      reward: 0.78,
+      total_count: 82,
+      correct_count: 73,
+      incorrect_count: 9,
     },
     {
-      ai_feature: 'trust_score_engine',
+      ai_feature: 'time_prediction',
       window_days: 7,
-      reward: 0.95,
-      total_count: 72,
-      correct_count: 70,
-      incorrect_count: 2,
-    },
-    {
-      ai_feature: 'turnaround_predictor',
-      window_days: 7,
-      reward: 0.92,
-      total_count: 54,
+      reward: 0.63,
+      total_count: 64,
       correct_count: 52,
+      incorrect_count: 12,
+    },
+    {
+      ai_feature: 'nl_search',
+      window_days: 7,
+      reward: 0.93,
+      total_count: 55,
+      correct_count: 53,
       incorrect_count: 2,
     },
     {
-      ai_feature: 'nl_query_parser',
+      ai_feature: 'cross_check',
       window_days: 7,
-      reward: 0.98,
-      total_count: 44,
-      correct_count: 43,
-      incorrect_count: 1,
+      reward: 0.81,
+      total_count: 96,
+      correct_count: 87,
+      incorrect_count: 9,
     },
     {
-      ai_feature: 'discrepancy_classifier',
+      ai_feature: 'letter_draft',
       window_days: 7,
-      reward: 0.97,
-      total_count: 31,
-      correct_count: 30,
-      incorrect_count: 1,
+      reward: 0.71,
+      total_count: 42,
+      correct_count: 36,
+      incorrect_count: 6,
     },
   ],
   90: [
     {
-      ai_feature: 'ocr_extraction',
+      ai_feature: 'ocr_autofill',
       window_days: 90,
-      reward: 0.92,
-      total_count: 1420,
-      correct_count: 1362,
-      incorrect_count: 58,
+      reward: 0.84,
+      total_count: 1540,
+      correct_count: 1418,
+      incorrect_count: 122,
     },
     {
-      ai_feature: 'bank_slip_alignment',
+      ai_feature: 'trust_score',
       window_days: 90,
-      reward: 0.94,
+      reward: 0.75,
       total_count: 980,
-      correct_count: 950,
+      correct_count: 855,
+      incorrect_count: 125,
+    },
+    {
+      ai_feature: 'time_prediction',
+      window_days: 90,
+      reward: 0.66,
+      total_count: 760,
+      correct_count: 629,
+      incorrect_count: 131,
+    },
+    {
+      ai_feature: 'nl_search',
+      window_days: 90,
+      reward: 0.91,
+      total_count: 640,
+      correct_count: 610,
       incorrect_count: 30,
     },
     {
-      ai_feature: 'trust_score_engine',
+      ai_feature: 'cross_check',
       window_days: 90,
-      reward: 0.91,
-      total_count: 840,
-      correct_count: 802,
-      incorrect_count: 38,
+      reward: 0.82,
+      total_count: 1180,
+      correct_count: 1072,
+      incorrect_count: 108,
     },
     {
-      ai_feature: 'turnaround_predictor',
+      ai_feature: 'letter_draft',
       window_days: 90,
-      reward: 0.88,
-      total_count: 620,
-      correct_count: 580,
-      incorrect_count: 40,
-    },
-    {
-      ai_feature: 'nl_query_parser',
-      window_days: 90,
-      reward: 0.94,
-      total_count: 490,
-      correct_count: 475,
-      incorrect_count: 15,
-    },
-    {
-      ai_feature: 'discrepancy_classifier',
-      window_days: 90,
-      reward: 0.93,
-      total_count: 360,
-      correct_count: 345,
-      incorrect_count: 15,
+      reward: 0.71,
+      total_count: 510,
+      correct_count: 436,
+      incorrect_count: 74,
     },
   ],
 };
@@ -347,7 +347,7 @@ export const AiHealthConsole: React.FC = () => {
                 textAnchor="end"
               />
               <YAxis
-                domain={[80, 100]}
+                domain={[70, 100]}
                 tick={{ fontSize: 11, fill: '#475569' }}
                 unit="%"
               />
@@ -368,12 +368,20 @@ export const AiHealthConsole: React.FC = () => {
                 }}
               />
               <Bar dataKey="agreementRate" radius={[4, 4, 0, 0]}>
-                {chartData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={entry.agreementRate >= 95 ? '#059669' : '#0284c7'}
-                  />
-                ))}
+                {chartData.map((entry, index) => {
+                  let fillColor = '#0284c7';
+                  if (entry.agreementRate >= 95) fillColor = '#059669';
+                  else if (entry.agreementRate >= 90) fillColor = '#0284c7';
+                  else if (entry.agreementRate >= 85) fillColor = '#6366f1';
+                  else fillColor = '#d97706';
+
+                  return (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={fillColor}
+                    />
+                  );
+                })}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
@@ -385,7 +393,7 @@ export const AiHealthConsole: React.FC = () => {
         <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-xs space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
             <Cpu className="w-4 h-4 text-primary" />
-            <span>OCR Extraction Throughput</span>
+            <span>OCR Autofill Engine</span>
           </div>
           <div className="text-xl font-mono font-bold text-slate-900">420 ms / doc</div>
           <p className="text-[11px] text-slate-500">Tesseract OCR engine + PyMuPDF pre-processing pipeline</p>
@@ -403,7 +411,7 @@ export const AiHealthConsole: React.FC = () => {
         <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-xs space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
             <Clock className="w-4 h-4 text-amber-500" />
-            <span>Turnaround Predictor</span>
+            <span>Time Prediction Engine</span>
           </div>
           <div className="text-xl font-mono font-bold text-slate-900">35 ms / inference</div>
           <p className="text-[11px] text-slate-500">XGBoost regression model with 1.84 days MAE</p>

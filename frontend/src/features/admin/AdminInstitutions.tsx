@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Building2,
@@ -12,12 +13,8 @@ import {
   AlertTriangle,
   CheckCircle2,
   BarChart2,
-  X,
-  FileSpreadsheet,
-  FileText,
   DollarSign,
   ExternalLink,
-  Award,
 } from 'lucide-react';
 import { apiClient } from '../../api/client';
 import { queryKeys } from '../../api/queryKeys';
@@ -524,6 +521,7 @@ export const MOCK_INSTITUTIONS: InstitutionRecord[] = [
 ];
 
 export const AdminInstitutions: React.FC = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { success, error: toastError } = useToast();
   const [page, setPage] = useState(1);
@@ -532,7 +530,6 @@ export const AdminInstitutions: React.FC = () => {
   const [stateFilter, setStateFilter] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedInstitution, setSelectedInstitution] = useState<InstitutionRecord | null>(null);
 
   // Form State
   const [name, setName] = useState('');
@@ -717,7 +714,7 @@ export const AdminInstitutions: React.FC = () => {
         <div>
           <button
             type="button"
-            onClick={() => setSelectedInstitution(row)}
+            onClick={() => navigate(`/admin/institutions/${row.id}`)}
             className="font-semibold text-slate-900 hover:text-primary text-left transition-colors flex items-center gap-1.5 group"
           >
             <span>{row.name}</span>
@@ -807,7 +804,7 @@ export const AdminInstitutions: React.FC = () => {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => setSelectedInstitution(row)}
+          onClick={() => navigate(`/admin/institutions/${row.id}`)}
           leftIcon={<BarChart2 className="w-3.5 h-3.5 text-primary" />}
         >
           Analytics
@@ -908,262 +905,6 @@ export const AdminInstitutions: React.FC = () => {
         totalRecords={total}
         onPageChange={setPage}
       />
-
-      {/* Institution Data Analytics Modal / Drawer */}
-      {selectedInstitution && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
-            {/* Modal Header */}
-            <div className="p-6 border-b border-slate-200 bg-slate-50/70 flex items-start justify-between">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
-                    {selectedInstitution.aicte_id}
-                  </span>
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">
-                    {selectedInstitution.accreditation || 'Accredited Technical Institute'}
-                  </span>
-                  {getStatusBadge(selectedInstitution.compliance_status)}
-                </div>
-                <h2 className="text-xl font-bold text-slate-900 mt-1">
-                  {selectedInstitution.name}
-                </h2>
-                <div className="flex items-center gap-3 text-xs text-slate-500">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                    {selectedInstitution.address || `${selectedInstitution.city}, ${selectedInstitution.state}`}
-                  </span>
-                  <span>•</span>
-                  <span>{selectedInstitution.contact_email}</span>
-                  <span>•</span>
-                  <span>{selectedInstitution.contact_phone}</span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setSelectedInstitution(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
-                aria-label="Close analytics modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Modal Scrollable Body */}
-            <div className="p-6 overflow-y-auto space-y-6">
-              {/* 4 Analytics Metrics Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                    Security Deposit
-                  </span>
-                  <span className="text-lg font-bold text-slate-900 block mt-1">
-                    {formatINR(selectedInstitution.total_fdr_amount)}
-                  </span>
-                  <span className="text-[10px] text-slate-500">
-                    Across {selectedInstitution.fdr_count} Active Instrument{selectedInstitution.fdr_count > 1 ? 's' : ''}
-                  </span>
-                </div>
-
-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                    Next Maturity
-                  </span>
-                  <span className="text-lg font-bold text-slate-900 block mt-1">
-                    {formatDateIST(selectedInstitution.earliest_maturity_date)}
-                  </span>
-                  <span className="text-[10px] font-semibold text-amber-700">
-                    {selectedInstitution.days_to_maturity} days remaining
-                  </span>
-                </div>
-
-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                    AI Trust Rating
-                  </span>
-                  <span className="text-lg font-bold text-primary block mt-1">
-                    {selectedInstitution.trust_score} / 100
-                  </span>
-                  <span className="text-[10px] text-emerald-700 font-medium">
-                    High Institutional Trust
-                  </span>
-                </div>
-
-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-left">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
-                    Primary Bank
-                  </span>
-                  <span className="text-sm font-bold text-slate-900 block mt-1 truncate">
-                    {selectedInstitution.primary_bank}
-                  </span>
-                  <span className="text-[10px] text-emerald-700 font-medium">
-                    100% Lien Marked to AICTE
-                  </span>
-                </div>
-              </div>
-
-              {/* Tenor & Maturity Horizon Visual Bar */}
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-primary" />
-                    <span className="font-bold text-slate-800">
-                      Maturity Horizon & Deposit Tenor Timeline
-                    </span>
-                  </div>
-                  <span className="text-slate-500">
-                    Matures on {formatDateIST(selectedInstitution.earliest_maturity_date)} ({selectedInstitution.days_to_maturity} days left)
-                  </span>
-                </div>
-
-                <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden flex">
-                  <div
-                    className="bg-primary h-full transition-all"
-                    style={{ width: `${Math.max(10, Math.min(95, 100 - (selectedInstitution.days_to_maturity / 1825) * 100))}%` }}
-                    title="Elapsed Deposit Tenor"
-                  />
-                  <div
-                    className="bg-amber-400 h-full transition-all"
-                    style={{ width: `${Math.min(90, Math.max(5, (selectedInstitution.days_to_maturity / 1825) * 100))}%` }}
-                    title="Remaining Horizon"
-                  />
-                </div>
-
-                <div className="flex justify-between text-[11px] text-slate-500 font-medium">
-                  <span>FDR Inception (5-Year Lock-in)</span>
-                  <span className="text-amber-800 font-bold">
-                    {selectedInstitution.days_to_maturity <= 30
-                      ? '⚠️ Renewal window open — notification dispatched'
-                      : '✅ In compliance lock-in'}
-                  </span>
-                  <span>Maturity Date</span>
-                </div>
-              </div>
-
-              {/* Active Instruments Table */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
-                    <h3 className="text-sm font-bold text-slate-900">
-                      Active Fixed Deposit Instruments ({selectedInstitution.instruments.length})
-                    </h3>
-                  </div>
-                  <span className="text-xs text-slate-500">
-                    Joint account held in favor of Member Secretary, AICTE
-                  </span>
-                </div>
-
-                <div className="border border-slate-200 rounded-xl overflow-hidden">
-                  <table className="w-full text-left text-xs border-collapse">
-                    <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold">
-                      <tr>
-                        <th className="py-2.5 px-3">FDR Number</th>
-                        <th className="py-2.5 px-3">Bank & Branch</th>
-                        <th className="py-2.5 px-3">Principal Amount</th>
-                        <th className="py-2.5 px-3">ROI</th>
-                        <th className="py-2.5 px-3">Maturity Date</th>
-                        <th className="py-2.5 px-3">AICTE Lien</th>
-                        <th className="py-2.5 px-3">OCR Match</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {selectedInstitution.instruments.map((inst) => (
-                        <tr key={inst.id} className="hover:bg-slate-50/50">
-                          <td className="py-2.5 px-3 font-mono font-bold text-primary">
-                            {inst.fdr_number}
-                          </td>
-                          <td className="py-2.5 px-3">
-                            <span className="font-semibold text-slate-900 block">{inst.bank_name}</span>
-                            <span className="text-[10px] text-slate-500">{inst.branch}</span>
-                          </td>
-                          <td className="py-2.5 px-3 font-bold text-slate-900">
-                            {formatINR(inst.principal_amount)}
-                          </td>
-                          <td className="py-2.5 px-3 font-mono text-slate-700">
-                            {inst.interest_rate}
-                          </td>
-                          <td className="py-2.5 px-3">
-                            <span className="font-medium text-slate-800">{formatDateIST(inst.maturity_date)}</span>
-                          </td>
-                          <td className="py-2.5 px-3">
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
-                              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                              Lien Marked
-                            </span>
-                          </td>
-                          <td className="py-2.5 px-3 font-mono font-bold text-emerald-700">
-                            {inst.ocr_confidence}%
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* AI Trust Factor Breakdown */}
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-accent" />
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                    AI Trust & Verification Diagnostics
-                  </h4>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                  <div className="bg-white p-2.5 rounded-lg border border-slate-200">
-                    <span className="text-slate-500 text-[11px] block">Document Completeness</span>
-                    <span className="font-bold text-emerald-700 text-sm">20 / 20 pts (100%)</span>
-                  </div>
-                  <div className="bg-white p-2.5 rounded-lg border border-slate-200">
-                    <span className="text-slate-500 text-[11px] block">Bank Direct API Match</span>
-                    <span className="font-bold text-emerald-700 text-sm">25 / 25 pts (Verified)</span>
-                  </div>
-                  <div className="bg-white p-2.5 rounded-lg border border-slate-200">
-                    <span className="text-slate-500 text-[11px] block">Tenor Consistency</span>
-                    <span className="font-bold text-emerald-700 text-sm">10 / 10 pts (Consistent)</span>
-                  </div>
-                  <div className="bg-white p-2.5 rounded-lg border border-slate-200">
-                    <span className="text-slate-500 text-[11px] block">Discrepancy History</span>
-                    <span className="font-bold text-emerald-700 text-sm">Zero Flags Caught</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between">
-              <span className="text-xs text-slate-500">
-                AICTE Secure Audit Record • ID: {selectedInstitution.id}
-              </span>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setSelectedInstitution(null)}
-                >
-                  Close
-                </Button>
-                <Button
-                  variant="black"
-                  size="sm"
-                  onClick={() => {
-                    success('Statement Requested', `Official audit dossier generated for ${selectedInstitution.name}`);
-                  }}
-                  leftIcon={<FileText className="w-3.5 h-3.5" />}
-                >
-                  Export Institution Dossier
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Register Institution Modal */}
       {isModalOpen && (

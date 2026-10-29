@@ -36,7 +36,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-101',
     timestamp: '2026-10-29 16:42',
-    ai_feature: 'ocr_extraction',
+    ai_feature: 'ocr_autofill',
     instrument_ref: 'SBI-FDR-9842104',
     institution_name: 'College of Engineering Pune (COEP)',
     officer_name: 'Dr. R. K. Sharma',
@@ -49,7 +49,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-102',
     timestamp: '2026-10-29 15:18',
-    ai_feature: 'bank_slip_alignment',
+    ai_feature: 'cross_check',
     instrument_ref: 'PNB-FDR-4819203',
     institution_name: 'Delhi Technological University (DTU)',
     officer_name: 'S. K. Verma',
@@ -62,7 +62,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-103',
     timestamp: '2026-10-29 14:05',
-    ai_feature: 'trust_score_engine',
+    ai_feature: 'trust_score',
     instrument_ref: 'CNRB-FDR-3910284',
     institution_name: 'RV College of Engineering (RVCE)',
     officer_name: 'Dr. M. Lakshmi',
@@ -75,7 +75,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-104',
     timestamp: '2026-10-29 11:22',
-    ai_feature: 'turnaround_predictor',
+    ai_feature: 'time_prediction',
     instrument_ref: 'IOB-FDR-8192038',
     institution_name: 'PSG College of Technology',
     officer_name: 'P. Venkatesh',
@@ -88,7 +88,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-105',
     timestamp: '2026-10-28 17:30',
-    ai_feature: 'ocr_extraction',
+    ai_feature: 'ocr_autofill',
     instrument_ref: 'HDFC-FDR-7718290',
     institution_name: 'Vellore Institute of Technology (VIT)',
     officer_name: 'Dr. R. K. Sharma',
@@ -101,7 +101,7 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-106',
     timestamp: '2026-10-28 15:45',
-    ai_feature: 'nl_query_parser',
+    ai_feature: 'nl_search',
     instrument_ref: 'SYSTEM-SEARCH-891',
     institution_name: 'Executive Inquiry Query',
     officer_name: 'Ananya Deshmukh',
@@ -114,20 +114,20 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-107',
     timestamp: '2026-10-28 12:10',
-    ai_feature: 'discrepancy_classifier',
+    ai_feature: 'letter_draft',
     instrument_ref: 'UCBA-FDR-1092837',
     institution_name: 'Jadavpur University',
     officer_name: 'S. K. Verma',
     officer_role: 'Verifying Officer (VO-04)',
     verdict: 'CORRECT',
-    original_ai_prediction: 'Discrepancy: Expiring in 13 days without active renewal receipt',
-    officer_note: 'Confirmed urgent renewal flag. Notice dispatched to institution registrar.',
+    original_ai_prediction: 'Notice: FDR Expiry & Renewal Reminder under AICTE Approval Process Handbook Clause 4.8',
+    officer_note: 'Letter draft cleanly generated with accurate clause references and bank branch address.',
     consensus_status: 'CONSENSUS_REACHED',
   },
   {
     id: 'fb-108',
     timestamp: '2026-10-27 16:50',
-    ai_feature: 'turnaround_predictor',
+    ai_feature: 'time_prediction',
     instrument_ref: 'SBI-FDR-4819028',
     institution_name: 'Thapar Institute of Engineering',
     officer_name: 'Dr. M. Lakshmi',
@@ -140,27 +140,53 @@ export const MOCK_FEEDBACK_LOGS: FeedbackLogItem[] = [
   {
     id: 'fb-109',
     timestamp: '2026-10-27 11:35',
-    ai_feature: 'ocr_extraction',
+    ai_feature: 'cross_check',
     instrument_ref: 'BARB-FDR-5510293',
     institution_name: 'MNIT Jaipur',
     officer_name: 'P. Venkatesh',
     officer_role: 'Approving Authority (AA-02)',
-    verdict: 'CORRECT',
-    original_ai_prediction: 'Principal: ₹1,50,00,000 | Bank: Bank of Baroda | Issue: 31 Mar 2022',
-    officer_note: 'Perfect alignment across both FDR front scan and bank counterfoil.',
-    consensus_status: 'CONSENSUS_REACHED',
+    verdict: 'INCORRECT',
+    original_ai_prediction: 'Discrepancy Tag: Mismatch in Bank Manager Designation field',
+    officer_note: 'False alarm: Assistant General Manager is authorized per BOB regional delegation order.',
+    consensus_status: 'QUEUED_FOR_RETRAIN',
   },
   {
     id: 'fb-110',
     timestamp: '2026-10-26 14:15',
-    ai_feature: 'bank_slip_alignment',
+    ai_feature: 'trust_score',
     instrument_ref: 'UBIN-FDR-2910384',
     institution_name: 'VJTI Mumbai',
     officer_name: 'Dr. R. K. Sharma',
     officer_role: 'Verifying Officer (VO-08)',
+    verdict: 'INCORRECT',
+    original_ai_prediction: 'Trust Score: 78/100 (Marked down for missing 2021 audited balance sheet)',
+    officer_note: 'Document was submitted offline directly to AICTE Western Regional Office. Score revised to 96.',
+    consensus_status: 'QUEUED_FOR_RETRAIN',
+  },
+  {
+    id: 'fb-111',
+    timestamp: '2026-10-25 10:45',
+    ai_feature: 'letter_draft',
+    instrument_ref: 'SBIN-FDR-1094827',
+    institution_name: 'Chaitanya Bharathi Institute (CBIT)',
+    officer_name: 'Dr. M. Lakshmi',
+    officer_role: 'Verifying Officer (VO-11)',
+    verdict: 'INCORRECT',
+    original_ai_prediction: 'Draft: Standard Release Clearance Letter without Bank Branch CC tag',
+    officer_note: 'Corrected draft to append mandatory CC dispatch to State Bank of India Himayatnagar branch.',
+    consensus_status: 'QUEUED_FOR_RETRAIN',
+  },
+  {
+    id: 'fb-112',
+    timestamp: '2026-10-24 16:30',
+    ai_feature: 'nl_search',
+    instrument_ref: 'SYSTEM-SEARCH-902',
+    institution_name: 'Regional Scrutiny Query',
+    officer_name: 'Ananya Deshmukh',
+    officer_role: 'Approving Authority (AA-01)',
     verdict: 'CORRECT',
-    original_ai_prediction: 'Lien Marked: Yes | Authorized Signatory: Verified',
-    officer_note: 'Verified signatory stamp against Union Bank of India verified specimen list.',
+    original_ai_prediction: 'Intent: FIND_UNMARKED_LIENS | Condition: status == ACTIVE && lien_marked == false',
+    officer_note: 'Successfully identified all 3 un-marked test instruments across southern region.',
     consensus_status: 'CONSENSUS_REACHED',
   },
 ];
@@ -333,12 +359,12 @@ export const FeedbackOverviewConsole: React.FC = () => {
               className="px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs bg-white text-slate-700"
             >
               <option value="all">All AI Subsystems</option>
-              <option value="ocr_extraction">OCR Extraction</option>
-              <option value="bank_slip_alignment">Bank Slip Alignment</option>
-              <option value="trust_score_engine">Trust Score</option>
-              <option value="turnaround_predictor">Turnaround Predictor</option>
-              <option value="nl_query_parser">NL Search</option>
-              <option value="discrepancy_classifier">Discrepancy Classifier</option>
+              <option value="ocr_autofill">OCR Autofill</option>
+              <option value="trust_score">Trust Score</option>
+              <option value="time_prediction">Time Prediction</option>
+              <option value="nl_search">NL Search</option>
+              <option value="cross_check">Cross Check</option>
+              <option value="letter_draft">Letter Draft</option>
             </select>
 
             <select

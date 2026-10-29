@@ -30,6 +30,7 @@ import { ApprovalsInbox } from '../features/approvals/ApprovalsInbox';
 // Admin Features
 import { AdminUsers } from '../features/admin/AdminUsers';
 import { AdminInstitutions } from '../features/admin/AdminInstitutions';
+import { InstitutionAnalyticsView } from '../features/admin/InstitutionAnalyticsView';
 import { AdminAlertRules } from '../features/admin/AdminAlertRules';
 import { AdminReleaseConditions } from '../features/admin/AdminReleaseConditions';
 import { AdminAuditLog } from '../features/admin/AdminAuditLog';
@@ -231,6 +232,14 @@ export const AppRoutes: React.FC = () => {
           element={
             <RequireRole allowedRoles={['ADMIN']}>
               <AdminInstitutions />
+            </RequireRole>
+          }
+        />
+        <Route
+          path="/admin/institutions/:id"
+          element={
+            <RequireRole allowedRoles={['ADMIN', 'VERIFYING_OFFICER', 'APPROVING_AUTHORITY']}>
+              <InstitutionAnalyticsView />
             </RequireRole>
           }
         />
