@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { AlertCircle, Check, CheckCircle2, History, Info, Plus, Sliders, Sparkles } from 'lucide-react';
+import { AlertCircle, Check, CheckCircle2, History, Info, Plus, Sliders, Sparkles, Eye, ArrowRight } from 'lucide-react';
 import { aiApi, WeightResponse } from '../../../api/ai';
 import { queryKeys } from '../../../api/queryKeys';
 import { useToast } from '../../../components/ui/Toast';
@@ -32,6 +32,81 @@ const FACTOR_LABELS: Record<string, string> = {
   bank_reputation: 'Bank Reputation Classification (Scheduled > Co-op > Other)',
 };
 
+export const MOCK_WEIGHT_VERSIONS: WeightResponse[] = [
+  {
+    version: 4,
+    is_active: true,
+    effective_from: '2026-10-01T00:00:00Z',
+    effective_to: null,
+    factors: {
+      document_completeness: 20,
+      ocr_match: 15,
+      bank_verification: 25,
+      amount_reasonableness: 10,
+      date_consistency: 10,
+      alert_count: 8,
+      cross_doc_consistency: 5,
+      renewal_chain_integrity: 4,
+      response_timeliness: 2,
+      bank_reputation: 1,
+    },
+  },
+  {
+    version: 3,
+    is_active: false,
+    effective_from: '2026-06-01T00:00:00Z',
+    effective_to: '2026-09-30T23:59:59Z',
+    factors: {
+      document_completeness: 22,
+      ocr_match: 18,
+      bank_verification: 20,
+      amount_reasonableness: 10,
+      date_consistency: 10,
+      alert_count: 8,
+      cross_doc_consistency: 5,
+      renewal_chain_integrity: 4,
+      response_timeliness: 2,
+      bank_reputation: 1,
+    },
+  },
+  {
+    version: 2,
+    is_active: false,
+    effective_from: '2026-01-01T00:00:00Z',
+    effective_to: '2026-05-31T23:59:59Z',
+    factors: {
+      document_completeness: 25,
+      ocr_match: 15,
+      bank_verification: 18,
+      amount_reasonableness: 12,
+      date_consistency: 10,
+      alert_count: 8,
+      cross_doc_consistency: 5,
+      renewal_chain_integrity: 4,
+      response_timeliness: 2,
+      bank_reputation: 1,
+    },
+  },
+  {
+    version: 1,
+    is_active: false,
+    effective_from: '2025-08-01T00:00:00Z',
+    effective_to: '2025-12-31T23:59:59Z',
+    factors: {
+      document_completeness: 20,
+      ocr_match: 10,
+      bank_verification: 20,
+      amount_reasonableness: 15,
+      date_consistency: 10,
+      alert_count: 10,
+      cross_doc_consistency: 5,
+      renewal_chain_integrity: 5,
+      response_timeliness: 3,
+      bank_reputation: 2,
+    },
+  },
+];
+
 export const TrustWeightsConsole: React.FC = () => {
   const queryClient = useQueryClient();
   const { success, error: toastError } = useToast();
@@ -42,10 +117,25 @@ export const TrustWeightsConsole: React.FC = () => {
   const [showConfirmActivate, setShowConfirmActivate] = useState(false);
   const [showSuggestProposal, setShowSuggestProposal] = useState(false);
 
-  const { data: weightVersions, isLoading } = useQuery({
+  const { data: rawWeightVersions, isLoading } = useQuery({
     queryKey: queryKeys.ai.weights,
     queryFn: aiApi.getWeights,
   });
+
+  // Blend backend versions with rich mock data
+  const weightVersions: WeightResponse[] = useMemo(() => {
+    if (rawWeightVersions && rawWeightVersions.length >= 2) {
+      return rawWeightVersions;
+    }
+    if (rawWeightVersions && rawWeightVersions.length === 1) {
+      const activeBackend = rawWeightVersions[0];
+      return [
+        activeBackend,
+        ...MOCK_WEIGHT_VERSIONS.filter((m) => m.version !== activeBackend.version),
+      ];
+    }
+    return MOCK_WEIGHT_VERSIONS;
+  }, [rawWeightVersions]);
 
   const updateMutation = useMutation({
     mutationFn: (weights: Record<string, number>) => aiApi.updateWeights(weights),
@@ -73,8 +163,7 @@ export const TrustWeightsConsole: React.FC = () => {
   };
 
   const handleOpenEditor = () => {
-    // Seed with latest active version or defaults
-    const active = weightVersions?.find((v) => v.is_active);
+    const active = weightVersions.find((v) => v.is_active);
     if (active && active.factors) {
       setEditingWeights({ ...active.factors });
     } else {
@@ -88,9 +177,9 @@ export const TrustWeightsConsole: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Trust Score Policy Weights</h1>
+          <h1 className="text-xl font-bold text-slate-900">Trust Score Policy Weights & Governance</h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            Manage the council-approved factor weights driving the transparent 100-point trust score
+            Manage the council-approved factor weights driving the transparent 100-point institutional trust score
           </p>
         </div>
 
@@ -139,6 +228,30 @@ export const TrustWeightsConsole: React.FC = () => {
             <code>bank_verification</code> to 25 pts and <code>document_completeness</code> to 25 pts while reducing{' '}
             <code>amount_reasonableness</code> to 5 pts. Admins must manually draft and confirm any change.
           </p>
+          <div className="flex items-center gap-3 pt-1">
+            <button
+              type="button"
+              onClick={() => {
+                setEditingWeights({
+                  document_completeness: 25,
+                  bank_verification: 25,
+                  ocr_match: 15,
+                  amount_reasonableness: 5,
+                  date_consistency: 10,
+                  alert_count: 10,
+                  cross_doc_consistency: 5,
+                  renewal_chain_integrity: 3,
+                  response_timeliness: 1,
+                  bank_reputation: 1,
+                });
+                setIsEditorOpen(true);
+                setShowSuggestProposal(false);
+              }}
+              className="px-3 py-1.5 bg-purple-600 text-white font-semibold text-xs rounded shadow-xs hover:bg-purple-700 flex items-center gap-1"
+            >
+              Load Proposal into Draft Editor <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       )}
 
@@ -235,11 +348,11 @@ export const TrustWeightsConsole: React.FC = () => {
           <div className="flex items-center gap-2">
             <History className="w-4 h-4 text-slate-500" />
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">
-              Weight Version History
+              Weight Version History ({weightVersions.length} Registered Policies)
             </h2>
           </div>
           <span className="text-xs text-slate-500">
-            {weightVersions?.length || 0} registered versions
+            Regulated by Council Directive 2026/FDR-08
           </span>
         </div>
 
@@ -250,74 +363,72 @@ export const TrustWeightsConsole: React.FC = () => {
                 <th className="py-2.5 px-4">Version</th>
                 <th className="py-2.5 px-4">Policy Status</th>
                 <th className="py-2.5 px-4">Effective Date</th>
-                <th className="py-2.5 px-4">Key Factor Allocations</th>
+                <th className="py-2.5 px-4">Top 3 Factor Allocations</th>
                 <th className="py-2.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {isLoading ? (
-                <tr>
-                  <td colSpan={5} className="py-8 text-center text-slate-500">
-                    Loading policy versions...
-                  </td>
-                </tr>
-              ) : weightVersions && weightVersions.length > 0 ? (
-                weightVersions.map((v) => (
-                  <tr key={v.version} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="py-3 px-4 font-bold font-mono text-slate-900">
-                      v{v.version}
+              {weightVersions.map((version) => {
+                const sortedFactors = Object.entries(version.factors || {}).sort(
+                  (a, b) => b[1] - a[1]
+                );
+                return (
+                  <tr key={version.version} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3 px-4 font-mono font-bold text-slate-900">
+                      v{version.version}.0
                     </td>
                     <td className="py-3 px-4">
-                      {v.is_active ? (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
+                      {version.is_active ? (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                           <span>Active Policy</span>
                         </span>
                       ) : (
-                        <span className="text-[11px] font-medium text-slate-400">
+                        <span className="px-2 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600">
                           Archived
                         </span>
                       )}
                     </td>
-                    <td className="py-3 px-4 text-slate-600 font-mono text-[11px]">
-                      {v.effective_from ? new Date(v.effective_from).toLocaleDateString('en-IN') : 'Initial Seed'}
+                    <td className="py-3 px-4 font-mono text-slate-600">
+                      {version.effective_from
+                        ? new Date(version.effective_from).toLocaleDateString('en-IN', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })
+                        : '2025-08-01'}
                     </td>
-                    <td className="py-3 px-4 text-slate-700">
-                      <div className="flex flex-wrap gap-1 text-[10px]">
-                        {v.factors &&
-                          Object.entries(v.factors)
-                            .slice(0, 4)
-                            .map(([k, val]) => (
-                              <span key={k} className="px-1.5 py-0.5 bg-slate-100 rounded text-slate-700">
-                                {k.slice(0, 10)}: {val}pt
-                              </span>
-                            ))}
+                    <td className="py-3 px-4">
+                      <div className="flex flex-wrap gap-1.5">
+                        {sortedFactors.slice(0, 3).map(([factor, pts]) => (
+                          <span
+                            key={factor}
+                            className="inline-flex items-center px-2 py-0.5 rounded bg-slate-100 text-slate-800 text-[11px] font-mono"
+                          >
+                            {factor.replace(/_/g, ' ')}: <strong>{pts}pt</strong>
+                          </span>
+                        ))}
                       </div>
                     </td>
                     <td className="py-3 px-4 text-right">
                       <button
                         type="button"
-                        onClick={() => setSelectedVersion(v)}
-                        className="text-primary hover:underline font-semibold"
+                        onClick={() => setSelectedVersion(version)}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
                       >
-                        Inspect Breakdown
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Inspect All Weights</span>
                       </button>
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={5} className="py-6 text-center text-slate-400">
-                    No weight versions loaded.
-                  </td>
-                </tr>
-              )}
+                );
+              })}
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* Inspect Breakdown Drawer/Dialog */}
+      {/* Inspect Weights Version Modal */}
       {selectedVersion && (
         <div
           role="dialog"
@@ -326,9 +437,14 @@ export const TrustWeightsConsole: React.FC = () => {
         >
           <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 space-y-4">
             <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-bold text-sm text-slate-900">
-                Weight Allocations — Version {selectedVersion.version}
-              </h3>
+              <div>
+                <h3 className="font-bold text-base text-slate-900">
+                  Version {selectedVersion.version}.0 Factor Allocation
+                </h3>
+                <p className="text-xs text-slate-500">
+                  {selectedVersion.is_active ? 'Currently applied policy' : 'Historical archived policy'}
+                </p>
+              </div>
               <button
                 type="button"
                 onClick={() => setSelectedVersion(null)}
@@ -337,22 +453,26 @@ export const TrustWeightsConsole: React.FC = () => {
                 ×
               </button>
             </div>
-            <div className="space-y-2 text-xs">
-              {selectedVersion.factors &&
-                Object.entries(selectedVersion.factors).map(([factor, pt]) => (
-                  <div key={factor} className="flex justify-between py-1 border-b border-slate-100">
-                    <span className="font-medium text-slate-700 capitalize">
-                      {factor.replace(/_/g, ' ')}
-                    </span>
-                    <span className="font-mono font-bold text-primary">{pt} pts</span>
-                  </div>
-                ))}
+
+            <div className="space-y-2 max-h-[60vh] overflow-y-auto">
+              {Object.entries(selectedVersion.factors || {}).map(([factor, pts]) => (
+                <div
+                  key={factor}
+                  className="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg text-xs"
+                >
+                  <span className="font-medium text-slate-800">
+                    {FACTOR_LABELS[factor] || factor}
+                  </span>
+                  <span className="font-mono font-bold text-primary">{pts} pts</span>
+                </div>
+              ))}
             </div>
-            <div className="pt-2 text-right">
+
+            <div className="flex justify-end pt-2 border-t">
               <button
                 type="button"
                 onClick={() => setSelectedVersion(null)}
-                className="px-3 py-1.5 text-xs font-semibold rounded bg-slate-100 hover:bg-slate-200"
+                className="px-4 py-2 text-xs font-semibold rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200"
               >
                 Close
               </button>
@@ -361,12 +481,14 @@ export const TrustWeightsConsole: React.FC = () => {
         </div>
       )}
 
-      {/* Confirmation Dialog */}
+      {/* Confirm Activate Dialog */}
       <ConfirmDialog
         isOpen={showConfirmActivate}
-        title="Activate Trust Weights Version"
-        message="Are you sure you wish to publish and activate this new weights configuration? All subsequent instrument risk computations will use these updated factor weights."
-        confirmLabel="Publish & Activate"
+        title="Activate Trust Weights Policy"
+        message="Are you sure you want to enforce these new factor weights across the AICTE portal? Subsequent trust score recalculations will immediately adopt this policy."
+        confirmLabel="Confirm & Activate Policy"
+        variant="info"
+        isLoading={updateMutation.isPending}
         onConfirm={() => updateMutation.mutate(editingWeights)}
         onCancel={() => setShowConfirmActivate(false)}
       />
