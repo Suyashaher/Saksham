@@ -1,0 +1,262 @@
+{
+  "app": {
+    "title": "Saksham — AICTE FDR Management Portal",
+    "subtitle": "Security Deposit & Fixed Deposit Receipt Verification System",
+    "government_of_india": "Government of India",
+    "ministry": "Ministry of Education",
+    "official_portal": "Official AICTE E-Governance Portal",
+    "confidential": "CONFIDENTIAL & PROPRIETARY"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "my_fdrs": "My FDRs",
+    "submit_fdr": "Submit New FDR",
+    "work_queue": "Scrutiny Queue",
+    "fdr_search": "Search Instruments",
+    "approvals": "Pending Approvals",
+    "alerts": "Alerts & Escalations",
+    "reports": "Reports & Analytics",
+    "users": "User Directory",
+    "institutions": "Institutions",
+    "alert_rules": "Alert Rules",
+    "release_conditions": "Release Conditions",
+    "audit_log": "Audit Trail",
+    "impact_metrics": "Impact Metrics",
+    "demo_runner": "Demo Scan Runner",
+    "logout": "Sign Out"
+  },
+  "auth": {
+    "login_title": "Portal Sign In",
+    "login_subtitle": "Enter your registered credentials to access your secure dashboard",
+    "email_label": "Official Email ID",
+    "email_placeholder": "officer@aicte-india.org or inst@college.edu.in",
+    "password_label": "Password",
+    "sign_in_button": "Sign In with Credentials",
+    "otp_title": "Two-Factor Authentication",
+    "otp_subtitle": "A 6-digit verification code has been dispatched to your registered email and mobile",
+    "otp_label": "6-Digit Verification Code",
+    "verify_button": "Verify & Proceed",
+    "resend_otp": "Resend Code",
+    "dev_otp_hint": "Development Mode: Check system logs or pre-filled OTP",
+    "logout_confirm": "Are you sure you wish to end your active session?"
+  },
+  "status": {
+    "SUBMITTED": "Submitted",
+    "UNDER_SCRUTINY": "Under Scrutiny",
+    "VERIFIED": "Bank Verified",
+    "DISCREPANCY": "Discrepancy Noticed",
+    "ACTIVE": "Active & Valid",
+    "EXPIRING": "Expiring Soon",
+    "MATURED": "Matured / Overdue",
+    "RENEWED": "Renewed",
+    "RELEASE_REQUESTED": "Release Requested",
+    "RELEASED": "Released & Discharged"
+  },
+  "verification": {
+    "bank_verified": "Bank-Verified",
+    "bank_verified_desc": "Independently verified with the issuing bank branch records.",
+    "self_declared": "Self-Declared",
+    "self_declared_desc": "Information submitted by the institution, awaiting bank confirmation."
+  },
+  "common": {
+    "loading": "Loading data, please wait...",
+    "no_records": "No records found matching the criteria.",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save Changes",
+    "delete": "Delete",
+    "actions": "Actions",
+    "view_details": "View Details",
+    "download": "Download",
+    "error_occurred": "An error occurred while processing your request.",
+    "try_again": "Try Again",
+    "search_placeholder": "Search by FDR number, bank name, or institution...",
+    "filter": "Filter",
+    "reset": "Reset Filters",
+    "total": "Total",
+    "page": "Page",
+    "of": "of"
+  },
+  "ai": {
+    "trust_score": "Trust Score",
+    "synthetic_badge": "Synthetic data",
+    "synthetic_tooltip": "Trained on simulated data. Not real AICTE performance.",
+    "real_badge": "Real data",
+    "mixed_badge": "Mixed data",
+    "rule_based_badge": "Rule-based",
+    "autofill_button": "Auto-fill from Document",
+    "apply_selected": "Apply Selected Fields",
+    "low_risk": "Low risk",
+    "needs_review": "Needs review",
+    "high_priority": "High priority",
+    "prediction_label": "Estimated Resolution",
+    "about_ai_title": "About AI Assistance in the Portal",
+    "ai_unavailable": "AI insight temporarily unavailable",
+    "feedback_helpful": "Was this AI insight helpful?",
+    "feedback_recorded": "Feedback recorded",
+    "ocr_mismatch": "OCR Discrepancy",
+    "cross_doc_mismatch": "Cross-Document Inconsistency"
+  },
+  "instruments": {
+    "fdr": "Fixed Deposit Receipt (FDR)",
+    "bank_guarantee": "Bank Guarantee (BG)",
+    "claim_expiry_date": "Claim Expiry Date",
+    "beneficiary": "Beneficiary",
+    "guarantee_number": "Bank Guarantee Number",
+    "fdr_number": "FDR Number"
+  },
+  "documents": {
+    "fdr_scan": "Original FDR Certificate",
+    "bank_guarantee_document": "Original Bank Guarantee Document",
+    "deposit_confirmation": "Bank Deposit Confirmation Slip",
+    "bank_letter": "Bank Confirmation & Lien Letter",
+    "renewal_certificate": "Renewal FDR / BG Extension Certificate",
+    "closure": "Discharge & Release Certificate",
+    "other": "Other Supporting Document",
+    "missing_required": "Missing Required Documents",
+    "upload_document": "Upload Document"
+  },
+  "home": {
+    "utility": {
+      "skip_to_main": "Skip to main content",
+      "text_size": "Text Size",
+      "decrease_font": "Decrease font size",
+      "normal_font": "Normal font size",
+      "increase_font": "Increase font size",
+      "high_contrast": "High Contrast",
+      "standard_contrast": "Standard Contrast",
+      "screen_reader_access": "Screen reader access",
+      "government_of_india": "भारत सरकार | Government of India",
+      "ministry_of_education": "Ministry of Education"
+    },
+    "brand": {
+      "title": "SAKSHAM",
+      "hindi_title": "सक्षम",
+      "portal_name": "Security Deposit / FDR Management Portal",
+      "bureau": "Regulation Bureau, All India Council for Technical Education",
+      "acronym_meaning": "Secure AICTE Keeping, Scrutiny, Handling and Monitoring"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "lifecycle": "Lifecycle",
+      "modules": "Modules",
+      "roles": "Roles",
+      "smart_ai": "Smart Assistance",
+      "security": "Security",
+      "faqs": "FAQs",
+      "contact": "Contact",
+      "sign_in": "Login",
+      "go_to_dashboard": "Go to my dashboard"
+    },
+    "hero": {
+      "badge": "Smart India Hackathon 2026 • PS 26265 Prototype",
+      "headline": "End-to-End Digital Governance for AICTE Security Deposits & Bank Guarantees",
+      "purpose": "Track every institution's security deposit, fixed deposit receipt (FDR), and bank guarantee from initial submission through tripartite lien verification to final discharge in one tamper-evident portal.",
+      "cta_signin": "Login",
+      "cta_dashboard": "Go to my dashboard",
+      "cta_explore": "How it works",
+      "facts_modules": "Core Modules",
+      "facts_roles": "User Roles",
+      "facts_stages": "Lifecycle Stages",
+      "facts_audit": "Audit Logging"
+    },
+    "notices": {
+      "section_title": "Notices & Regulatory Circulars",
+      "sample_notice_badge": "Sample notice",
+      "view_all": "Archived Circulars"
+    },
+    "about": {
+      "section_badge": "Statutory Context",
+      "section_title": "About the Saksham Portal",
+      "section_subtitle": "Transitioning from fragmented physical paperwork to a unified national digital repository.",
+      "challenge_title": "The Legacy Challenge",
+      "challenge_desc": "Managing thousands of Fixed Deposit Receipts (FDRs) and Bank Guarantees across hundreds of technical institutions has historically relied on physical paper receipts, manual branch follow-ups, and fragmented registers. This created operational risks of missed maturity dates, delayed renewals, and administrative friction during rightful release.",
+      "solution_title": "The Saksham Digital Solution",
+      "solution_desc": "Saksham establishes a unified single source of truth connecting technical institutions, scrutiny officers, issuing bank branches, and approving authorities. By combining automated maturity tracking, independent bank-verified tagging, and an immutable audit trail, the portal ensures complete transparency and regulatory compliance across every instrument's lifecycle."
+    },
+    "lifecycle": {
+      "section_badge": "Process Flow",
+      "section_title": "Lifecycle at a Glance",
+      "section_subtitle": "Every security deposit follows an 8-stage statutory lifecycle from initial upload to formal discharge."
+    },
+    "modules": {
+      "section_badge": "Architecture",
+      "section_title": "Ten Core Modules",
+      "section_subtitle": "Purpose-built functional components delivering end-to-end security deposit oversight."
+    },
+    "verification": {
+      "section_badge": "Core Principle",
+      "section_title": "Self-Declared vs. Bank-Verified",
+      "section_subtitle": "What an institution submits remains strictly separated from what an issuing bank confirms.",
+      "self_declared_heading": "Self-Declared Information",
+      "self_declared_body": "When an institution submits a new FDR or Bank Guarantee, all details (FDR number, amount, maturity date, bank branch) are treated as Self-Declared. These entries are subject to scrutiny and cannot be treated as valid legal security until independently corroborated.",
+      "bank_verified_heading": "Bank-Verified Status",
+      "bank_verified_body": "Only after the issuing bank branch confirms the instrument—via official confirmation letter, digital lien marking, or bank API integration—is the instrument designated as Bank-Verified. This dual-state architecture prevents unauthorized or unencumbered submissions."
+    },
+    "roles": {
+      "section_badge": "Access & Governance",
+      "section_title": "Who Uses the Portal",
+      "section_subtitle": "Four dedicated user roles governed by strict Role-Based Access Control (RBAC), supported by external banking verifiers."
+    },
+    "smart_ai": {
+      "section_badge": "Intelligent Oversight",
+      "section_title": "Smart Assistance & Transparent AI",
+      "section_subtitle": "Advisory intelligence designed to reduce clerical burdens while preserving human authority.",
+      "ethical_notice": "Statutory Decision Integrity: AI tools inside Saksham are strictly advisory. Officers and approving authorities retain sole authority for all regulatory decisions. AI models are trained on synthetic benchmark datasets in this prototype."
+    },
+    "security": {
+      "section_badge": "Integrity & Trust",
+      "section_title": "Security, Compliance & Trust",
+      "section_subtitle": "Built strictly according to Indian e-Governance standards and data privacy mandates."
+    },
+    "getting_started": {
+      "section_badge": "Onboarding",
+      "section_title": "How to Get Started",
+      "section_subtitle": "Simple role-specific workflows to begin utilizing the Saksham portal."
+    },
+    "faqs": {
+      "section_badge": "Questions & Answers",
+      "section_title": "Frequently Asked Questions",
+      "section_subtitle": "Answers based on the actual architectural implementation and statutory operating rules."
+    },
+    "contact": {
+      "section_badge": "Official Support",
+      "section_title": "Contact & Technical Helpdesk",
+      "section_subtitle": "Reach the AICTE Regulation Bureau or technical support team."
+    },
+    "footer": {
+      "disclaimer_text": "Prototype developed for Smart India Hackathon (PS 26265). Not an official AICTE website.",
+      "accessibility_title": "Accessibility Statement",
+      "accessibility_desc": "This portal conforms to WCAG 2.1 Level AA guidelines, featuring semantic landmarks, keyboard operability, responsive text-scaling, and high-contrast support.",
+      "copyright": "Prototype for Smart India Hackathon 2026 • AICTE Security Deposit Management Portal"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "hi": "हिन्दी (Hindi)",
+    "mr": "मराठी (Marathi)",
+    "ta": "தமிழ் (Tamil)",
+    "te": "తెలుగు (Telugu)"
+  },
+  "chatbot": {
+    "title": "Saksham AI Copilot",
+    "subtitle": "Institutional Compliance & Explainable AI",
+    "compliance_tab": "4. Compliance",
+    "explainable_tab": "5. Explainable AI",
+    "logged_in_access": "Logged-in Access",
+    "officer_access": "Officer & Approver",
+    "officers_only": "Officers Only",
+    "login_for_records": "Login for Records",
+    "model_version": "Model v2.4",
+    "role_guest": "Guest",
+    "not_logged_in": "Not Logged In",
+    "ask_placeholder_compliance": "Ask about DTU, COEP, shortfall, replacement FDR, norms...",
+    "ask_placeholder_explainable": "Ask about Trust Score 72, suspect doc type, fast-track, turnaround...",
+    "send": "Send message",
+    "disclaimer": "Advisory AI only • Final authority remains with AICTE Regulatory Officers"
+  }
+}

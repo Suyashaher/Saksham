@@ -1,0 +1,4 @@
+"""Celery app entrypoint for celery -A workers.celery_app."""
+from app.workers.celery_app import celery_app
+
+__all__ = ["celery_app"]

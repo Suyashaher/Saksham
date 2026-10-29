@@ -1,0 +1,4 @@
+# OCR comparison spike — pinned dependencies
+# Python 3.14 compatible
+Pillow==11.1.0
+reportlab==4.4.0

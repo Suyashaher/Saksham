@@ -1,0 +1,448 @@
+[
+  {
+    "doc_id": 1,
+    "doc_type": "FDR_SCAN",
+    "bank": "Punjab National Bank",
+    "fdr_number": "4332181960013",
+    "amount": 250000.64,
+    "issue_date": "2026-05-17",
+    "maturity_date": "2026-11-13",
+    "rate": 7.53,
+    "tenure_months": 6,
+    "institution": "SRM University",
+    "branch": "New Delhi Main Branch",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_001_stamped.png"
+    }
+  },
+  {
+    "doc_id": 2,
+    "doc_type": "FDR_SCAN",
+    "bank": "Union Bank of India",
+    "fdr_number": "4026542351161",
+    "amount": 750000.44,
+    "issue_date": "2026-05-21",
+    "maturity_date": "2027-11-12",
+    "rate": 8.63,
+    "tenure_months": 18,
+    "institution": "VIT Vellore",
+    "branch": "Lucknow Hazratganj",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_002_stamped.png"
+    }
+  },
+  {
+    "doc_id": 3,
+    "doc_type": "FDR_SCAN",
+    "bank": "Axis Bank",
+    "fdr_number": "8495931034131",
+    "amount": 1000000.35,
+    "issue_date": "2025-07-17",
+    "maturity_date": "2030-06-21",
+    "rate": 8.75,
+    "tenure_months": 60,
+    "institution": "IIT Bombay",
+    "branch": "Mumbai Fort Branch",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_003_stamped.png"
+    }
+  },
+  {
+    "doc_id": 4,
+    "doc_type": "FDR_SCAN",
+    "bank": "Canara Bank",
+    "fdr_number": "1928327648350",
+    "amount": 250000.04,
+    "issue_date": "2024-10-08",
+    "maturity_date": "2026-09-28",
+    "rate": 6.2,
+    "tenure_months": 24,
+    "institution": "NIT Trichy",
+    "branch": "Bangalore MG Road",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_004.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_004.png"
+    }
+  },
+  {
+    "doc_id": 5,
+    "doc_type": "FDR_SCAN",
+    "bank": "Canara Bank",
+    "fdr_number": "6724238849696",
+    "amount": 750000.28,
+    "issue_date": "2023-10-11",
+    "maturity_date": "2026-09-25",
+    "rate": 7.22,
+    "tenure_months": 36,
+    "institution": "Delhi Technological University",
+    "branch": "Ahmedabad CG Road",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_005.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_005.png"
+    }
+  },
+  {
+    "doc_id": 6,
+    "doc_type": "FDR_SCAN",
+    "bank": "Bank of Baroda",
+    "fdr_number": "9166978480184",
+    "amount": 5000000.43,
+    "issue_date": "2023-08-17",
+    "maturity_date": "2025-02-07",
+    "rate": 6.96,
+    "tenure_months": 18,
+    "institution": "VIT Vellore",
+    "branch": "Pune Camp",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_006.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_006.png"
+    }
+  },
+  {
+    "doc_id": 7,
+    "doc_type": "FDR_SCAN",
+    "bank": "Indian Overseas Bank",
+    "fdr_number": "8148932528809",
+    "amount": 750000.62,
+    "issue_date": "2023-02-09",
+    "maturity_date": "2023-08-08",
+    "rate": 9.18,
+    "tenure_months": 6,
+    "institution": "BITS Pilani",
+    "branch": "Chennai Anna Nagar",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_007.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_007.png"
+    }
+  },
+  {
+    "doc_id": 8,
+    "doc_type": "FDR_SCAN",
+    "bank": "Canara Bank",
+    "fdr_number": "1171822782489",
+    "amount": 1000000.27,
+    "issue_date": "2026-01-09",
+    "maturity_date": "2030-12-14",
+    "rate": 8.1,
+    "tenure_months": 60,
+    "institution": "BITS Pilani",
+    "branch": "Lucknow Hazratganj",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_008.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_008.png"
+    }
+  },
+  {
+    "doc_id": 9,
+    "doc_type": "FDR_SCAN",
+    "bank": "Union Bank of India",
+    "fdr_number": "7133150983930",
+    "amount": 100000.9,
+    "issue_date": "2026-07-16",
+    "maturity_date": "2027-01-12",
+    "rate": 6.03,
+    "tenure_months": 6,
+    "institution": "Delhi Technological University",
+    "branch": "Jaipur MI Road",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_009.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_009.png"
+    }
+  },
+  {
+    "doc_id": 10,
+    "doc_type": "FDR_SCAN",
+    "bank": "Indian Overseas Bank",
+    "fdr_number": "4738299737631",
+    "amount": 100000.84,
+    "issue_date": "2025-06-01",
+    "maturity_date": "2026-11-23",
+    "rate": 6.91,
+    "tenure_months": 18,
+    "institution": "VIT Vellore",
+    "branch": "Kolkata Park Street",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_010.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\fdr_scan_010.png"
+    }
+  },
+  {
+    "doc_id": 11,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "State Bank of India",
+    "fdr_number": "5133387262473",
+    "amount": 100000.56,
+    "deposit_date": "2026-02-01",
+    "institution": "IIT Delhi",
+    "ref_no": "REF/9856/2026",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_011_stamped.png"
+    }
+  },
+  {
+    "doc_id": 12,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "State Bank of India",
+    "fdr_number": "3267736026064",
+    "amount": 1500000.36,
+    "deposit_date": "2025-05-16",
+    "institution": "SRM University",
+    "ref_no": "REF/3536/2025",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_012_stamped.png"
+    }
+  },
+  {
+    "doc_id": 13,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Canara Bank",
+    "fdr_number": "3098050097882",
+    "amount": 50000.65,
+    "deposit_date": "2023-06-14",
+    "institution": "IIT Bombay",
+    "ref_no": "REF/2113/2023",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_013_stamped.png"
+    }
+  },
+  {
+    "doc_id": 14,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Canara Bank",
+    "fdr_number": "1939909169985",
+    "amount": 500000.26,
+    "deposit_date": "2026-10-03",
+    "institution": "Anna University",
+    "ref_no": "REF/5351/2026",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_014.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_014.png"
+    }
+  },
+  {
+    "doc_id": 15,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Axis Bank",
+    "fdr_number": "4751079911838",
+    "amount": 500000.16,
+    "deposit_date": "2024-12-15",
+    "institution": "IIT Delhi",
+    "ref_no": "REF/7054/2024",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_015.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_015.png"
+    }
+  },
+  {
+    "doc_id": 16,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "HDFC Bank",
+    "fdr_number": "7849808412411",
+    "amount": 10000000.7,
+    "deposit_date": "2023-11-15",
+    "institution": "BITS Pilani",
+    "ref_no": "REF/4450/2023",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_016.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_016.png"
+    }
+  },
+  {
+    "doc_id": 17,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "ICICI Bank",
+    "fdr_number": "4874016400524",
+    "amount": 125000.94,
+    "deposit_date": "2025-06-23",
+    "institution": "SRM University",
+    "ref_no": "REF/1158/2025",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_017.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_017.png"
+    }
+  },
+  {
+    "doc_id": 18,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Punjab National Bank",
+    "fdr_number": "2805982620450",
+    "amount": 750000.26,
+    "deposit_date": "2026-10-28",
+    "institution": "NIT Trichy",
+    "ref_no": "REF/6794/2026",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_018.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_018.png"
+    }
+  },
+  {
+    "doc_id": 19,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Indian Overseas Bank",
+    "fdr_number": "9232260256342",
+    "amount": 10000000.13,
+    "deposit_date": "2025-02-22",
+    "institution": "Delhi Technological University",
+    "ref_no": "REF/4644/2025",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_019.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_019.png"
+    }
+  },
+  {
+    "doc_id": 20,
+    "doc_type": "DEPOSIT_CONFIRMATION",
+    "bank": "Canara Bank",
+    "fdr_number": "5433036541458",
+    "amount": 1000000.86,
+    "deposit_date": "2026-01-03",
+    "institution": "Anna University",
+    "ref_no": "REF/2889/2026",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_020.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\deposit_conf_020.png"
+    }
+  },
+  {
+    "doc_id": 21,
+    "doc_type": "OTHER",
+    "bank": "HDFC Bank",
+    "subtype": "Interest Certificate",
+    "amount": 100000.76,
+    "doc_date": "2026-04-04",
+    "institution": "IIT Bombay",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_021_stamped.png"
+    }
+  },
+  {
+    "doc_id": 22,
+    "doc_type": "OTHER",
+    "bank": "Axis Bank",
+    "subtype": "Interest Certificate",
+    "amount": 1000000.73,
+    "doc_date": "2024-10-04",
+    "institution": "Anna University",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022.png",
+      "rotated_2.5deg": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022_rotated.png",
+      "blurred": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022_blurred.png",
+      "low_res": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022_lowres.png",
+      "stamped": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_022_stamped.png"
+    }
+  },
+  {
+    "doc_id": 23,
+    "doc_type": "OTHER",
+    "bank": "Canara Bank",
+    "subtype": "Interest Certificate",
+    "amount": 2000000.68,
+    "doc_date": "2023-04-01",
+    "institution": "BITS Pilani",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_023.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_023.png"
+    }
+  },
+  {
+    "doc_id": 24,
+    "doc_type": "OTHER",
+    "bank": "Canara Bank",
+    "subtype": "Account Statement",
+    "amount": 2500000.4,
+    "doc_date": "2025-06-02",
+    "institution": "Anna University",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_024.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_024.png"
+    }
+  },
+  {
+    "doc_id": 25,
+    "doc_type": "OTHER",
+    "bank": "Punjab National Bank",
+    "subtype": "KYC Verification",
+    "amount": 750000.51,
+    "doc_date": "2025-11-04",
+    "institution": "BITS Pilani",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_025.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_025.png"
+    }
+  },
+  {
+    "doc_id": 26,
+    "doc_type": "OTHER",
+    "bank": "HDFC Bank",
+    "subtype": "KYC Verification",
+    "amount": 5000000.48,
+    "doc_date": "2023-09-18",
+    "institution": "SRM University",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_026.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_026.png"
+    }
+  },
+  {
+    "doc_id": 27,
+    "doc_type": "OTHER",
+    "bank": "Bank of Baroda",
+    "subtype": "KYC Verification",
+    "amount": 2000000.0,
+    "doc_date": "2026-03-11",
+    "institution": "Manipal Institute of Technology",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_027.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_027.png"
+    }
+  },
+  {
+    "doc_id": 28,
+    "doc_type": "OTHER",
+    "bank": "HDFC Bank",
+    "subtype": "Account Statement",
+    "amount": 1500000.56,
+    "doc_date": "2024-03-06",
+    "institution": "BITS Pilani",
+    "pdf_path": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_028.pdf",
+    "image_variants": {
+      "clean": "A:\\Saksham\\fdr-portal\\spikes\\ocr_comparison\\output\\other_028.png"
+    }
+  }
+]

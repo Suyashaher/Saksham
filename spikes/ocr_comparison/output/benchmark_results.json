@@ -1,0 +1,241 @@
+{
+  "by_doc_type": {
+    "FDR_SCAN/amount": {
+      "correct": 20,
+      "total": 22
+    },
+    "FDR_SCAN/bank_name": {
+      "correct": 22,
+      "total": 22
+    },
+    "FDR_SCAN/fdr_number": {
+      "correct": 18,
+      "total": 22
+    },
+    "FDR_SCAN/date": {
+      "correct": 21,
+      "total": 22
+    },
+    "DEPOSIT_CONFIRMATION/amount": {
+      "correct": 20,
+      "total": 22
+    },
+    "DEPOSIT_CONFIRMATION/bank_name": {
+      "correct": 22,
+      "total": 22
+    },
+    "DEPOSIT_CONFIRMATION/fdr_number": {
+      "correct": 21,
+      "total": 22
+    },
+    "DEPOSIT_CONFIRMATION/date": {
+      "correct": 20,
+      "total": 22
+    },
+    "OTHER/amount": {
+      "correct": 13,
+      "total": 16
+    },
+    "OTHER/bank_name": {
+      "correct": 16,
+      "total": 16
+    },
+    "OTHER/date": {
+      "correct": 16,
+      "total": 16
+    }
+  },
+  "by_field": {
+    "amount": {
+      "correct": 53,
+      "total": 60
+    },
+    "bank_name": {
+      "correct": 60,
+      "total": 60
+    },
+    "fdr_number": {
+      "correct": 39,
+      "total": 44
+    },
+    "date": {
+      "correct": 57,
+      "total": 60
+    }
+  },
+  "by_degradation": {
+    "clean": {
+      "correct": 102,
+      "total": 104
+    },
+    "rotated_2.5deg": {
+      "correct": 30,
+      "total": 30
+    },
+    "blurred": {
+      "correct": 27,
+      "total": 30
+    },
+    "low_res": {
+      "correct": 24,
+      "total": 30
+    },
+    "stamped": {
+      "correct": 26,
+      "total": 30
+    }
+  },
+  "total_evaluations": 224,
+  "failures": [
+    {
+      "doc_id": 1,
+      "doc_type": "FDR_SCAN",
+      "degradation": "low_res",
+      "field": "amount",
+      "expected": "250000.64",
+      "ocr_text": "Rs. 25o.000.64",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 1,
+      "doc_type": "FDR_SCAN",
+      "degradation": "low_res",
+      "field": "fdr_number",
+      "expected": "4332181960013",
+      "ocr_text": "FDR No: 433218I960013",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 2,
+      "doc_type": "FDR_SCAN",
+      "degradation": "low_res",
+      "field": "fdr_number",
+      "expected": "4026542351161",
+      "ocr_text": "FDR No: 40265423511G1",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 3,
+      "doc_type": "FDR_SCAN",
+      "degradation": "blurred",
+      "field": "fdr_number",
+      "expected": "8495931034131",
+      "ocr_text": "FDR No: 849593l034131",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 3,
+      "doc_type": "FDR_SCAN",
+      "degradation": "stamped",
+      "field": "amount",
+      "expected": "1000000.35",
+      "ocr_text": "Rs. 1,000.o00/-",
+      "parsed": "1000.00",
+      "correct": false
+    },
+    {
+      "doc_id": 3,
+      "doc_type": "FDR_SCAN",
+      "degradation": "stamped",
+      "field": "date",
+      "expected": "2025-07-17",
+      "ocr_text": "17,07.2025",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 6,
+      "doc_type": "FDR_SCAN",
+      "degradation": "clean",
+      "field": "fdr_number",
+      "expected": "9166978480184",
+      "ocr_text": "FDR No: 9l66978480184",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 11,
+      "doc_type": "DEPOSIT_CONFIRMATION",
+      "degradation": "blurred",
+      "field": "fdr_number",
+      "expected": "5133387262473",
+      "ocr_text": "FDR No: 5l33387262473",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 11,
+      "doc_type": "DEPOSIT_CONFIRMATION",
+      "degradation": "low_res",
+      "field": "date",
+      "expected": "2026-02-01",
+      "ocr_text": "01/02/202G",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 12,
+      "doc_type": "DEPOSIT_CONFIRMATION",
+      "degradation": "low_res",
+      "field": "amount",
+      "expected": "1500000.36",
+      "ocr_text": "Rs. 1,50O 000/-",
+      "parsed": "150000",
+      "correct": false
+    },
+    {
+      "doc_id": 12,
+      "doc_type": "DEPOSIT_CONFIRMATION",
+      "degradation": "stamped",
+      "field": "date",
+      "expected": "2025-05-16",
+      "ocr_text": "16-0S-2025",
+      "parsed": "None",
+      "correct": false
+    },
+    {
+      "doc_id": 13,
+      "doc_type": "DEPOSIT_CONFIRMATION",
+      "degradation": "blurred",
+      "field": "amount",
+      "expected": "50000.65",
+      "ocr_text": "INR 50,000,65",
+      "parsed": "5000065",
+      "correct": false
+    },
+    {
+      "doc_id": 22,
+      "doc_type": "OTHER",
+      "degradation": "low_res",
+      "field": "amount",
+      "expected": "1000000.73",
+      "ocr_text": "Rs. 1,00o,0o0.73",
+      "parsed": "10000.73",
+      "correct": false
+    },
+    {
+      "doc_id": 22,
+      "doc_type": "OTHER",
+      "degradation": "stamped",
+      "field": "amount",
+      "expected": "1000000.73",
+      "ocr_text": "Rs. l,000,00o.73",
+      "parsed": "0.73",
+      "correct": false
+    },
+    {
+      "doc_id": 27,
+      "doc_type": "OTHER",
+      "degradation": "clean",
+      "field": "amount",
+      "expected": "2000000.0",
+      "ocr_text": "Rs. 2,00o,000.00",
+      "parsed": "200000.00",
+      "correct": false
+    }
+  ]
+}

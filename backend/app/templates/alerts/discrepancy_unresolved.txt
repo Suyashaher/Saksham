@@ -1,0 +1,11 @@
+Notice: Unresolved FDR Discrepancy
+
+Dear Administrator, {{ institution_name }},
+
+The discrepancy flagged on your FDR submission has remained unresolved for {{ days_unresolved }} days:
+- Instrument Ref: {{ ref_number_masked }}
+- Status: DISCREPANCY
+
+Please edit and resubmit at {{ portal_url }}.
+
+AICTE Regulation Bureau

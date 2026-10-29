@@ -1,0 +1,34 @@
+{
+  "rule_based": {
+    "pass_rate": 100.0,
+    "passed": 30,
+    "total": 30,
+    "by_difficulty": {
+      "easy": {
+        "passed": 5,
+        "total": 5
+      },
+      "medium": {
+        "passed": 9,
+        "total": 9
+      },
+      "hard": {
+        "passed": 9,
+        "total": 9
+      },
+      "hinglish": {
+        "passed": 3,
+        "total": 3
+      },
+      "edge": {
+        "passed": 4,
+        "total": 4
+      }
+    }
+  },
+  "mock_llm": {
+    "pass_rate": 100.0,
+    "passed": 20,
+    "total": 20
+  }
+}

@@ -1,0 +1,1 @@
+AICTE FDR Alert: Security Deposit {{ ref_number_masked }} for {{ institution_name }} matures on {{ maturity_date }} ({{ days_remaining }} days left). Please renew via portal.

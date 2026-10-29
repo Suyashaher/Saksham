@@ -1,0 +1,82 @@
+{
+  "verification_turnaround_days": {
+    "Median Baseline": {
+      "MAE": 4.116,
+      "MedAE": 3.3,
+      "RMSE": 5.402
+    },
+    "RandomForest": {
+      "MAE": 1.654,
+      "MedAE": 1.459,
+      "RMSE": 2.09,
+      "top_features": [
+        {
+          "feature": "escalation_level",
+          "importance": 0.8414
+        },
+        {
+          "feature": "amount",
+          "importance": 0.0436
+        },
+        {
+          "feature": "verification_method",
+          "importance": 0.0248
+        },
+        {
+          "feature": "doc_completeness",
+          "importance": 0.0156
+        },
+        {
+          "feature": "submission_dow",
+          "importance": 0.0144
+        }
+      ],
+      "interval_coverage_80pct": 0.5633
+    },
+    "HistGradientBoosting": {
+      "MAE": 1.625,
+      "MedAE": 1.38,
+      "RMSE": 2.051
+    }
+  },
+  "release_turnaround_days": {
+    "Median Baseline": {
+      "MAE": 2.041,
+      "MedAE": 1.625,
+      "RMSE": 2.597
+    },
+    "RandomForest": {
+      "MAE": 1.719,
+      "MedAE": 1.436,
+      "RMSE": 2.157,
+      "top_features": [
+        {
+          "feature": "escalation_level",
+          "importance": 0.4861
+        },
+        {
+          "feature": "amount",
+          "importance": 0.1457
+        },
+        {
+          "feature": "state",
+          "importance": 0.0763
+        },
+        {
+          "feature": "bank",
+          "importance": 0.061
+        },
+        {
+          "feature": "submission_dow",
+          "importance": 0.0538
+        }
+      ],
+      "interval_coverage_80pct": 0.5883
+    },
+    "HistGradientBoosting": {
+      "MAE": 1.781,
+      "MedAE": 1.536,
+      "RMSE": 2.212
+    }
+  }
+}

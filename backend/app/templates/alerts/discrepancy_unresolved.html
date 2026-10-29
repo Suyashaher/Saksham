@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AICTE Discrepancy Unresolved Notice</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #dc2626; border-radius: 6px;">
+        <h2 style="color: #dc2626;">Notice: Unresolved FDR Discrepancy</h2>
+        <p>Dear Administrator, {{ institution_name }},</p>
+        <p>The discrepancy flagged on your FDR submission has remained unresolved for <strong>{{ days_unresolved }} days</strong>:</p>
+        <ul>
+            <li><strong>Instrument Ref:</strong> {{ ref_number_masked }}</li>
+            <li><strong>Status:</strong> DISCREPANCY</li>
+        </ul>
+        <p>Please edit the details and resubmit the instrument or provide clarifying documents promptly.</p>
+        <p><a href="{{ portal_url }}" style="background: #dc2626; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block;">Resolve Discrepancy</a></p>
+        <p style="font-size: 12px; color: #777; margin-top: 30px;">AICTE Regulation Bureau</p>
+    </div>
+</body>
+</html>

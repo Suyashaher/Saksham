@@ -1,0 +1,12 @@
+AICTE FDR Management Portal - Security Deposit Maturity Notice
+
+Dear Administrator, {{ institution_name }},
+
+This is an automated reminder regarding the Fixed Deposit Receipt (FDR) / Security Deposit held with AICTE:
+- Instrument Ref: {{ ref_number_masked }}
+- Maturity Date: {{ maturity_date }}
+- Days Remaining: {{ days_remaining }} days
+
+Please ensure timely renewal via the portal ({{ portal_url }}) before the maturity date.
+
+AICTE Regulation Bureau

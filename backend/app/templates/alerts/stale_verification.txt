@@ -1,0 +1,11 @@
+Action Required: Stale Scrutiny / Verification
+
+Dear Officer,
+
+An FDR instrument submitted by {{ institution_name }} has remained under scrutiny/verification for {{ days_stale }} days:
+- Instrument Ref: {{ ref_number_masked }}
+- Current Status: {{ current_status }}
+
+Please review and complete the scrutiny queue at {{ portal_url }}.
+
+AICTE Regulation Bureau

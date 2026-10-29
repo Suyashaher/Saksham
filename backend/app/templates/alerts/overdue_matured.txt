@@ -1,0 +1,12 @@
+URGENT: AICTE Security Deposit Matured / Overdue
+
+Dear Administrator, {{ institution_name }},
+
+The following Fixed Deposit Receipt has passed its maturity date without renewal:
+- Instrument Ref: {{ ref_number_masked }}
+- Maturity Date: {{ maturity_date }}
+- Days Overdue: {{ days_overdue }} days
+
+Immediate action is required. Please submit a renewal immediately at {{ portal_url }}.
+
+AICTE Regulation Bureau

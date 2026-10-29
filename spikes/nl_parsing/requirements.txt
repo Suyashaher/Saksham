@@ -1,0 +1,3 @@
+# NL parsing spike — pinned dependencies
+# No external deps beyond stdlib for rule-based fallback
+# LLM calls are mocked (no API key required)

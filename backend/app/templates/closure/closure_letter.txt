@@ -1,0 +1,37 @@
+ALL INDIA COUNCIL FOR TECHNICAL EDUCATION
+Nelson Mandela Marg, Vasant Kunj, New Delhi - 110070
+
+CERTIFICATE OF RELEASE / DISCHARGE OF SECURITY DEPOSIT
+
+Reference: {{ closure_reference }}
+Date: {{ approval_date }}
+
+To:
+The Branch Manager,
+{{ issuing_bank }}, {{ branch }}
+
+Subject: Release / Discharge of Security Deposit / FDR No. {{ reference_number }}
+
+Sir / Madam,
+
+This is to certify that {{ institution_name }} (AICTE ID: {{ aicte_id }}) has fulfilled its statutory regulatory obligations in accordance with the AICTE Approval Process Handbook.
+
+The All India Council for Technical Education hereby releases its lien on the following Fixed Deposit Receipt / Security Deposit:
+
+1. Instrument Reference No. : {{ masked_reference_number }}
+2. Issuing Bank & Branch    : {{ issuing_bank }} ({{ branch }})
+3. Principal Deposit Amount : INR {{ amount }}
+4. Issue Date              : {{ issue_date }}
+5. Maturity Date           : {{ maturity_date }}
+6. Action Type             : {{ request_type }}
+
+The bank is hereby authorized and requested to discharge the said FDR / Security Deposit and release / refund the proceeds in accordance with regulatory procedures.
+
+Approved By:
+{{ approver_name }}
+{{ approver_role }}
+AICTE Approving Authority
+
+Verification Code (SHA-256):
+{{ verification_code }}
+Authenticate online at: {{ portal_url }}/closure/verify/{{ closure_reference }}
